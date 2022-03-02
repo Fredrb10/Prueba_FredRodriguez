@@ -23,3 +23,5 @@ Para este fin existen dos alternativas:
 ```
 INSERT [Identity].[AspNetUsers] ([Id], [UserName], [NormalizedUserName], [Email], [NormalizedEmail], [EmailConfirmed], [PasswordHash], [SecurityStamp], [ConcurrencyStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEnd], [LockoutEnabled], [AccessFailedCount], [FirstName], [LastName]) VALUES (N'cc7deafd-2977-4c1b-91ad-7b8d37a01ffe', N'admin@prueba.com', N'ADMIN@PRUEBA.COM', N'admin@prueba.com', N'ADMIN@PRUEBA.COM', 0, N'AQAAAAEAACcQAAAAEL5faIXPhAOdXYU+vAAKbF32yd2ONSGUdGJ6wo9jkhm8KKlLF/h5x0zjJbcPKt8WYg==', N'PS7QHYXIO4NUC65ZYEP4SBEYOXP4DTWA', N'e955992b-abf5-41d3-b504-ec6dc0632989', NULL, 0, 0, NULL, 1, 0, N'Fred', N'Rodríguez')
 ```
+## Flujo de la aplicación
+El proyecto web FredRodriguez.Library.Authentication contiene un formulario para iniciar sesion, desde este conecta con la Api de seguridad FredRodriguez.Library.Identity.Api para gestionar el acceso segun el usuario(correo electronico) y contraseña ingresados, si no son validos mostrará un mensaje denegando el acceso de lo contrario continuara hacia el proyecto FredRodriguez.Library.Travel donde se listan, editan y eliminan los libros.
