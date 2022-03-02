@@ -1,0 +1,61 @@
+﻿@model FredRodriguez.Library.Travel.Models.Libro
+@{
+    ViewData["Title"] = "Nuevo Libro";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <h3>Nuevo libro</h3>
+        </div>
+         
+    </div>
+
+    <div class="row">
+       <div class="col-sm-10">
+
+           <form method="post" asp-action="Create">
+               <div asp-validation-summary="ModelOnly" class"textdanger"></div>
+
+               <div class"form-group">
+                  <label asp-for="id_Editorial" class="control-label"></label>
+                  <input asp-for="id_Editorial" class="form-control"/>
+                  <span asp-validation-for="id_Editorial" class="text-danger"></span>
+               </div>
+
+               <div class"form-group">
+                  <label asp-for="isbn" class="control-label"></label>
+                  <input asp-for="isbn" class="form-control"/>
+                  <span asp-validation-for="isbn" class="text-danger"></span>
+               </div>
+               <div class"form-group">
+                  <label asp-for="titulo" class="control-label"></label>
+                  <input asp-for="titulo" class="form-control"/>
+                  <span asp-validation-for="titulo" class="text-danger"></span>
+               </div>
+
+                <div class"form-group">
+                  <label asp-for="sinopsis" class="control-label"></label>
+                  <input asp-for="sinopsis" class="form-control"/>
+                  <span asp-validation-for="sinopsis" class="text-danger"></span>
+               </div>
+                <div class"form-group">
+                  <label asp-for="n_paginas" class="control-label"></label>
+                  <input asp-for="n_paginas" class="form-control"/>
+                  <span asp-validation-for="n_paginas" class="text-danger"></span>
+               </div>
+
+               <div class"form-group">
+                   <input type="submit" value="Nuevo libro" class="btn btn-primary" />
+               </div>
+           </form>
+       </div>
+    </div>
+
+</div>
+
+@section Scripts{
+    @{<partial name="_ValidationScriptsPartial" />}
+}
+

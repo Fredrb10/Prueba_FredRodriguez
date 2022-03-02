@@ -1,0 +1,63 @@
+﻿@model IEnumerable<FredRodriguez.Library.Travel.Models.Libro>
+@{
+    ViewData["Title"] = "Lista de libros";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    @if(TempData["mensaje"] !=null)
+    {
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            @TempData["mensaje"]
+            <button type="button" class="close" date-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    }
+   
+    <div class="row">
+        <div class="col-sm-6">
+            <h3>Lista de libros</h3>
+        </div>
+         <div class="col-sm-6">
+            <a class="btn btn-success d-block" asp-action="Create" asp-controller="Libros">Nuevo Libro</a>
+        </div>
+    </div>
+
+    <div class="row">
+        @if(Model.Count() > 0)
+        {
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <td>@Html.DisplayNameFor(m => m.isbn)</td>
+                        <td>@Html.DisplayNameFor(m => m.titulo)</td>
+                        <td>@Html.DisplayNameFor(m => m.sinopsis)</td>
+                        <td>@Html.DisplayNameFor(m => m.n_paginas)</td>
+                        <td>Acciones</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach(var item in Model)
+                    {
+                        <tr>
+                        <td>@item.isbn</td>
+                        <td>@item.titulo</td>
+                        <td>@item.sinopsis</td>
+                        <td>@item.n_paginas</td>
+                        <td><a asp-controller="Libros" asp-action="Edit" asp-route-id="@item.id" class="btn btn-warning">Editar</a></td>
+                        <td><a asp-controller="Libros" asp-action="Delete" asp-route-id="@item.id" class="btn btn-danger">Eliminar</a></td>
+                        <td></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            
+        }
+    </div>
+    <div>
+        <h6>Usuario <b>@User.Identity.Name</b></h6>
+    </div>
+
+</div>
+
